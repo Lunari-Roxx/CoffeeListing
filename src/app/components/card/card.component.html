@@ -1,0 +1,27 @@
+<div class="card">
+    @if(data.popular) {
+        <span class="popular">Popular</span>
+    }
+    <img [src]="data.image" />
+    <div class="card__description">
+        <div class="pricing__section">
+            <h2 class="name">{{data.name}}</h2>
+            <p class="price">{{data.price}}</p>
+        </div>
+        <div class="rate__section">
+            <div class="rate__container">
+                @if (data.rating) {
+                <img class="star" src="../assets/Star_fill.svg" alt="yellow Star">
+                <span class="rate">{{data.rating}}</span>
+                } @else {
+                <img class="star" src="../assets/Star.svg" alt="empty Star">
+                <span class="rate">No rates</span>
+                }
+                <span class="votes">({{data.votes}} votes)</span>
+            </div>
+            @if (!data.available) {
+            <span class="danger">Sold out</span>
+            }
+        </div>
+    </div>
+</div>

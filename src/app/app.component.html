@@ -7,61 +7,16 @@
       <p>Introducing our Coffee Collection, a selection of unique coffees from different roast types and origins,
         expertly roasted in small batches and shipped fresh weekly.</p>
       <div class="buttons">
-        <button>All Products</button>
-        <button>Available Now</button>
+        <button (click)="showAllCoffees($event)" class="active">All Products</button>
+        <button (click)="showAvailableCoffees($event)">Available Now</button>
       </div>
     </section>
     <section class="container__content">
-      <div class="card">
-        <img src="../assets/example.jpg" />
-        <div class="card__description">
-          <div class="pricing">
-            <h2 class="name">name</h2>
-            <p class="price">$100</p>
-          </div>
-          <div class="rateing">
-            <div class="algo">
-              <img src="../assets/Star_fill.svg" alt="star">
-              <span class="rate">6.3</span>
-              <span class="votes">(65 votes)</span>
-            </div>
-              <span class="sold-out">sold out</span>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img src="../assets/example.jpg" />
-        <div class="card__description">
-          <div class="pricing">
-            <h2 class="name">name</h2>
-            <p class="price">$100</p>
-          </div>
-          <div class="rateing">
-            <div class="algo">
-              <img src="../assets/Star_fill.svg" alt="star">
-              <span class="rate">6.3</span>
-              <span class="votes">(65 votes)</span>
-            </div>
-              <span class="sold-out">sold out</span>
-          </div>
-        </div>
-      </div><div class="card">
-        <img src="../assets/example.jpg" />
-        <div class="card__description">
-          <div class="pricing">
-            <h2 class="name">name</h2>
-            <p class="price">$100</p>
-          </div>
-          <div class="rateing">
-            <div class="algo">
-              <img src="../assets/Star_fill.svg" alt="star">
-              <span class="rate">6.3</span>
-              <span class="votes">(65 votes)</span>
-            </div>
-              <span class="sold-out">sold out</span>
-          </div>
-        </div>
-      </div>
+      @if(coffees) {
+      @for (coffee of coffees; track $index) {
+      <app-card [data]="coffee"></app-card>
+        }
+      }
     </section>
   </div>
 </main>
